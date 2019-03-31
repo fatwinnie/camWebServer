@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> take a photo </title>
+     <link rel="stylesheet" href='../static/style.css'/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<button id="take">take picture</button>
+<!--<h3 id="image" width="50%"></h3> -->
+<table style="border:3px #cccccc solid;" cellpadding="10" border='1'>
+<td id="image">這是圖片欄位</td>
+</table>
+<hr>
+
+<h3> Return to main page ==> <a href="/" class="button">RETURN</a></h3>
+<script>
+	
+  $('#take').on('click', function () {
+		
+		setInterval(function(){   $.ajax({
+            url: '/get-pic'
+        }).done(function (data) {
+            $('#image').html('<img src="'+data+'">');
+        });
+        }
+        , 5000);		        
+        });
+
+     	
+
+        
+    function checkImg() {
+        $.ajax({
+            url: '/aaa'
+        }).done(function (data) {
+
+        });
+    }
+</script>
+</body>
+</html>
